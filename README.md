@@ -6,3 +6,8 @@ show examples
    
 3. Extract: tar xzvf nvim-linux64.tar.gz
 4. Run ./nvim-linux64/bin/nvim
+
+## 如何安装vim 插件
+1. 配置vim 参数
+   `https://www.artacode.com/post/ide/vim/vim-plug-install/`
+2. 参数配置
