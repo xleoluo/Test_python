@@ -13,6 +13,8 @@ show examples
 2. 参数配置
 
 ## 如何提交信息
+```
    git add file
-   git commit "message"
+   git commit -m "message"
    git push
+```
