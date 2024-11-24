@@ -11,3 +11,8 @@ show examples
 1. 配置vim 参数
    `https://www.artacode.com/post/ide/vim/vim-plug-install/`
 2. 参数配置
+
+## 如何提交信息
+   git add file
+   git commit "message"
+   git push
