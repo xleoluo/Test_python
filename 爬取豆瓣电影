@@ -1,0 +1,29 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+url = "https://movie.douban.com/top250"
+movies = []
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'}
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    soup = BeautifulSoup(response.text, 'html.parser')
+    # 找到包含电影信息的列表
+    movie_items = soup.find_all('div', class_='item')
+    print(movie_items)
+    for item in movie_items:
+        title = item.find('span', class_='title').get_text()
+        rating = item.find('span', class_='rating_num').get_text()
+        movie = {
+            'title': title,
+            'rating': rating
+        }
+        movies.append(movie)
+
+    print(movies)
+
+    df = pd.DataFrame(movies)
+    print(df)
+    df.to_csv('douban_movies_top250.csv', index=False, encoding='utf-8')
+else:
+    print("请求失败！")
